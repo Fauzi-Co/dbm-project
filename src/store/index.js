@@ -15,6 +15,10 @@ export default new Vuex.Store({
   getters: {
     getDataBases(state) {
       return state.databases;
+    },
+
+    getUseDatabase(state) {
+      return state.database.name;
     }
   },
   mutations: {
