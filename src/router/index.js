@@ -12,7 +12,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/:databaseName',
+    path: '/database/:databaseName',
     name: 'structure',
     component: StructureView
   },

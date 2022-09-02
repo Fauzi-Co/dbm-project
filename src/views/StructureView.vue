@@ -22,6 +22,7 @@
         ></b-form-input>
         <button class="btn btn-xyz" @click.prevent="handleCreateDatabase">Create</button>
       </b-card>
+      {{ useDatabase }}
     </b-col>
   </b-row>
 </template>
@@ -36,15 +37,24 @@ export default {
   },
 
   mounted() {
-    // let { databaseName } = this.$route.params;
-    // this.$store.commit("setUseDatabase", databaseName);
-    console.log("oke");
+    let { databaseName } = this.$route.params;
+    this.$store.commit("setUseDatabase", databaseName);
+  },
+
+  watch: {
+    // handle perubahan pada route
+    // "$route.path": function(val, oldVal) {
+    "$route.path": function() {
+      let { databaseName } = this.$route.params;
+      this.$store.commit("setUseDatabase", databaseName);
+    }
   },
 
   data() {
     return {
       newTable: "",
-      amount: 2
+      amount: 2,
+      useDatabase: this.$route.params.databaseName
     };
   }
 };

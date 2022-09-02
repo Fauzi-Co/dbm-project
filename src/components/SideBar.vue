@@ -14,7 +14,7 @@
           v-for="(item, i) in this.$store.getters.getDataBases"
           v-bind:key="i"
         >
-          <router-link :to="'/' + item.Database">
+          <router-link :to="'/database/' + item.Database" :key="$route.path">
             <small>{{ item.Database }}</small>
           </router-link>
           <small v-if="filterDatabase(item.Database)" @click="handleDeleteDatabase(item.Database)">
